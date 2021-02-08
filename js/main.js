@@ -5,9 +5,6 @@ $(document).ready(function(){
     });
 
 
-
-
-
     $('.responsive__block').slick({
         speed: 900,
         infinite: true,
@@ -72,5 +69,23 @@ $(document).ready(function(){
         $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
         return false;
     });
+
+    $('.main__button, .passion__btn').click(function() {
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        );
+      });
     
+
+    $('form').submit(function(e){
+        e.preventDefault();
+        $('.overlay, .modal').fadeIn();
+    });
+
+    $('.modal__close').click(function() {
+        $('.overlay, .modal').fadeOut();
+        $('input').val('');
+    });
 });
